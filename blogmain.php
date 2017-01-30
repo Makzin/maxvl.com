@@ -1,3 +1,8 @@
+<?php
+  include("inc/functions.php");
+  $catalog = full_blog_array();
+ ?>
+
 <html>
 <head>
 <link rel="stylesheet" href="css/main.css">
@@ -11,21 +16,22 @@
 
 <body>
   <div class='mainContainer'>
-  <!--NavBar-->
-  <div class='navLeft'>
-    <ul>
-      <li><a href='index.php'>  >> Home </a></li>
-      <li><a href='blogmain.php'> >> Blog</a></li>
-    </ul>
-  </div>
+<?php include("inc/navbar.php");?>
+
 
 <!-- Blog Section -->
 <div class='container'>
-  
-<div class = 'article'>
+  <h1 class = 'display-1'>Blog</h1>
+  <?php
+    foreach ($catalog as $article) {
+        echo "<div class='article'><p class='articleSubject'>"
+        . $article['subject'] . "</p><p class='articleContent'>"
+        . $article['content'] . "</p></div>";
+    };
 
+  ?>
 
-</div>
+<div class = 'article'></div>
 
 </div>
 
