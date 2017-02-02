@@ -84,3 +84,21 @@ body {
   padding: 20px;
 
 }
+
+.newPostForm {
+  position: relative;
+  text-align: center;
+  margin: auto;
+  width: 70%;
+  left: 5%;
+  top: 50px;
+  list-style: none;
+}
+
+
+.newPostForm th, td {
+  text-align: center;
+  margin-top: 5%;
+  left: 5%;
+  list-style: none;
+}
