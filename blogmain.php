@@ -1,6 +1,7 @@
 <?php
   include("inc/functions.php");
   $catalog = full_blog_array();
+
  ?>
 
 <html>
@@ -24,9 +25,11 @@
   <h1 class = 'display-1'>Blog</h1>
   <?php
     foreach ($catalog as $article) {
-        echo "<div class='article'><p class='articleSubject'>"
-        . $article['subject'] . "</p><p class='articleContent'>"
-        . $article['content'] . "</p></div>";
+        $id = get_single_article($article['article_id']);
+        echo "<div class='article'>
+        <p class='articleSubject'>". $id['subject'] . "</p>
+        <p class='articleContent'>". $id['content'] . "</p>
+        </div>";
     };
 
   ?>
