@@ -2,7 +2,7 @@
   require("inc/functions.php");
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_NUMBER_STRING));
+      $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
       $date = trim(filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING));
       $content = trim(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING));
 

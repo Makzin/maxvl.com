@@ -28,6 +28,7 @@
         $id = get_single_article($article['article_id']);
         echo "<div class='article'>
         <p class='articleSubject'>". $id['subject'] . "</p>
+        <p class='articleDate'>" . $id['date'] . "</p>
         <p class='articleContent'>". $id['content'] . "</p>
         </div>";
     };

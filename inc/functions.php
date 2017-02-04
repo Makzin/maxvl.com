@@ -4,7 +4,7 @@ function full_blog_array()
 {
     include('connection.php');
     try {
-        $results = $db->query("SELECT article_id, subject, content FROM articles");
+        $results = $db->query("SELECT article_id, subject,date, content FROM articles ORDER BY article_id DESC");
     } catch (Exception $e) {
         echo "Unable to retrieve results";
         exit;
@@ -19,7 +19,7 @@ function get_single_article($id)
     include('connection.php');
     try {
         $results = $db->prepare(
-        "SELECT article_id, subject, content
+        "SELECT article_id, date, subject, content
         FROM articles
         WHERE articles.article_id = ?"
       );
@@ -37,9 +37,10 @@ function get_single_article($id)
 function add_post($title, $date, $content)
 {
     include('connection.php');
-    $sql = "INSERT INTO articles(subject, date, content) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO articles( subject, date, content) VALUES (?, ?, ?)";
 
     try {
+        $article_id ++;
         $results = $db->prepare($sql);
         $results->bindValue(1, $title, PDO::PARAM_STR);
         $results->bindValue(2, $date, PDO::PARAM_STR);
